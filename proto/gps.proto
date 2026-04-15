@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package leos;
+
+message GPS {
+    double lat = 1; 
+    double lon = 2; 
+    float alt_m = 3; 
+
+    uint32 satellites = 4;
+    uint32 fix = 5;  // 1=no fix, 2=2D, 3=3D
+    float climb_mps = 6;
+    float hdop = 7;
+}

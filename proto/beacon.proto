@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package leos;
+
+import "gps.proto";
+
+message Health {
+    uint32 flight_computer = 1;
+    uint32 power = 2;
+    uint32 efm = 3;
+    uint32 sensors = 4;
+    uint32 radio = 5;
+}
+
+message Beacon {
+    GPS gps = 1;
+    Health health = 2;
+}

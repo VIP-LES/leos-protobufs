@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package leos;
+
+import "beacon.proto";
+import "efm.proto";
+import "purpleboard.proto";
+
+
+message TelemetryPacket {
+  oneof data {
+    Beacon beacon = 10;
+    PurpleboardTelemetry purpleboard = 12;
+    EfmReadings efm = 13;
+  }
+}
+

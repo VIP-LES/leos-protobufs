@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package leos;
+
+import "telemetry.proto";
+import "command.proto";
+
+message Packet {
+  string callsign = 1;
+  uint32 sequence = 2;
+  uint64 timestamp_ms = 3;
+
+  oneof payload {
+    TelemetryPacket telemetry = 10;
+    CommandPacket command = 11;
+  }
+}

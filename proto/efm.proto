@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package leos;
+
+message EfmReadings {
+    repeated ADC adc = 1;
+}
+
+message ADC {
+    uint32 id = 1;
+    float ch1_diff = 2;
+    float ch2_phase1 = 3;
+    float ch3_phase2 = 4;
+    float ch4_breakbeam = 5;
+}

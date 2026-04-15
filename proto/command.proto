@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package leos;
+
+message CommandPacket {
+  uint32 command_id = 1;
+
+  oneof data {
+    CutdownCommand cutdown = 10;
+  }
+}
+
+message CutdownCommand {
+  bool fire = 1;
+
+  uint32 authorization_key = 2;
+}
