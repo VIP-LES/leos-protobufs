@@ -1,3 +1,7 @@
+syntax = "proto3";
+
+package leos;
+
 message PurpleboardTelemetry {
     float temperature = 1;
     float pressure = 2;

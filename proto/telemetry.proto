@@ -6,12 +6,14 @@ import "beacon.proto";
 import "efm.proto";
 import "purpleboard.proto";
 
+message LowRateTelemetry {
+  PurpleboardTelemetry sensors = 1;
+  Beacon beacon = 4;
+}
 
 message TelemetryPacket {
   oneof data {
-    Beacon beacon = 10;
-    PurpleboardTelemetry purpleboard = 12;
     EfmReadings efm = 13;
+    LowRateTelemetry low_rate = 14;
   }
 }
-

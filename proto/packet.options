@@ -1,0 +1,2 @@
+# includes terminating NUL: 16 ASCII characters + 1.
+leos.Packet.callsign max_size:17

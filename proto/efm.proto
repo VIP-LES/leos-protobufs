@@ -3,6 +3,7 @@ syntax = "proto3";
 package leos;
 
 message EfmReadings {
+    // at most 4 entries per packet; see efm.options.
     repeated ADC adc = 1;
 }
 
