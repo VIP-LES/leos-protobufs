@@ -1,0 +1,18 @@
+{
+  "versions": {
+    "nanopb": "0.4.9.1",
+    "grpcio-tools": "1.84.0",
+    "protobuf": "7.36.1"
+  },
+  "sources": {
+    "beacon.proto": "4e7cbc392276f7c14cb399c3bfbc125462e19bf031bbce10456c04dd12fe8b2f",
+    "command.proto": "0b5eece7c61da215d44461a5190a805323f7db2f18457133224c6167551fc0a9",
+    "efm.proto": "90a3e0c126ea444d02dcdd00ac00abbfac577af0890f922647ee082c3c6bea04",
+    "gps.proto": "ea2aa8e1aae8e1c851af58cb1f2d798c3c838dcef1453337d3a9e2ce467c1e85",
+    "packet.proto": "dbfd6887648ecb30a10aae04db32ab2f72127d169c09d6f25e9d84c9da1c0612",
+    "purpleboard.proto": "7d783ced226f64f21f9a1b33d29e022293dec87837bc83af430b225924641734",
+    "telemetry.proto": "4d7009108508b32ac265e8230836e09771287c2f34e44b458f004b5998518207",
+    "efm.options": "862fce11ef0a5384274341380cdbd6149d5bed780838ec998eedb1f826d9e229",
+    "packet.options": "4739841c283198337524288b98f09ab70c8e144e5a8e170a6fb720f6a9611d69"
+  }
+}
