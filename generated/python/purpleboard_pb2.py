@@ -24,13 +24,15 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11purpleboard.proto\x12\x04leos\"\x87\x01\n\x14PurpleboardTelemetry\x12\x13\n\x0btemperature\x18\x01 \x01(\x02\x12\x10\n\x08pressure\x18\x02 \x01(\x02\x12\x10\n\x08humidity\x18\x03 \x01(\x02\x12\x0b\n\x03uvi\x18\x04 \x01(\r\x12\x11\n\tlight_lux\x18\x05 \x01(\x02\x12\x16\n\x0egas_resistance\x18\x06 \x01(\x02\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11purpleboard.proto\x12\x04leos\"\x9e\x01\n\x0fPurpleboardData\x12\x13\n\x0btemperature\x18\x01 \x01(\x02\x12\x10\n\x08pressure\x18\x02 \x01(\x02\x12\x10\n\x08humidity\x18\x03 \x01(\x02\x12\x0b\n\x03uvi\x18\x04 \x01(\r\x12\x11\n\tlight_lux\x18\x05 \x01(\x02\x12\x16\n\x0egas_resistance\x18\x06 \x01(\x02\x12\x1a\n\x03\x61ir\x18\x07 \x01(\x0b\x32\r.leos.AirData\"k\n\x07\x41irData\x12\x10\n\x08pm10_env\x18\x01 \x01(\r\x12\x10\n\x08pm25_env\x18\x02 \x01(\r\x12\x11\n\tpm100_env\x18\x03 \x01(\r\x12\x13\n\x0b\x61qi_pm25_us\x18\x04 \x01(\r\x12\x14\n\x0c\x61qi_pm100_us\x18\x05 \x01(\rb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'purpleboard_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
-  _globals['_PURPLEBOARDTELEMETRY']._serialized_start=28
-  _globals['_PURPLEBOARDTELEMETRY']._serialized_end=163
+  _globals['_PURPLEBOARDDATA']._serialized_start=28
+  _globals['_PURPLEBOARDDATA']._serialized_end=186
+  _globals['_AIRDATA']._serialized_start=188
+  _globals['_AIRDATA']._serialized_end=295
 # @@protoc_insertion_point(module_scope)

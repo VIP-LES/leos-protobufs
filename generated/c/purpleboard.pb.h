@@ -10,14 +10,24 @@
 #endif
 
 /* Struct definitions */
-typedef struct _leos_PurpleboardTelemetry {
+typedef struct _leos_AirData {
+    uint32_t pm10_env;
+    uint32_t pm25_env;
+    uint32_t pm100_env;
+    uint32_t aqi_pm25_us;
+    uint32_t aqi_pm100_us;
+} leos_AirData;
+
+typedef struct _leos_PurpleboardData {
     float temperature;
     float pressure;
     float humidity;
     uint32_t uvi;
     float light_lux;
     float gas_resistance;
-} leos_PurpleboardTelemetry;
+    bool has_air;
+    leos_AirData air;
+} leos_PurpleboardData;
 
 
 #ifdef __cplusplus
@@ -25,36 +35,58 @@ extern "C" {
 #endif
 
 /* Initializer values for message structs */
-#define leos_PurpleboardTelemetry_init_default   {0, 0, 0, 0, 0, 0}
-#define leos_PurpleboardTelemetry_init_zero      {0, 0, 0, 0, 0, 0}
+#define leos_PurpleboardData_init_default        {0, 0, 0, 0, 0, 0, false, leos_AirData_init_default}
+#define leos_AirData_init_default                {0, 0, 0, 0, 0}
+#define leos_PurpleboardData_init_zero           {0, 0, 0, 0, 0, 0, false, leos_AirData_init_zero}
+#define leos_AirData_init_zero                   {0, 0, 0, 0, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
-#define leos_PurpleboardTelemetry_temperature_tag 1
-#define leos_PurpleboardTelemetry_pressure_tag   2
-#define leos_PurpleboardTelemetry_humidity_tag   3
-#define leos_PurpleboardTelemetry_uvi_tag        4
-#define leos_PurpleboardTelemetry_light_lux_tag  5
-#define leos_PurpleboardTelemetry_gas_resistance_tag 6
+#define leos_AirData_pm10_env_tag                1
+#define leos_AirData_pm25_env_tag                2
+#define leos_AirData_pm100_env_tag               3
+#define leos_AirData_aqi_pm25_us_tag             4
+#define leos_AirData_aqi_pm100_us_tag            5
+#define leos_PurpleboardData_temperature_tag     1
+#define leos_PurpleboardData_pressure_tag        2
+#define leos_PurpleboardData_humidity_tag        3
+#define leos_PurpleboardData_uvi_tag             4
+#define leos_PurpleboardData_light_lux_tag       5
+#define leos_PurpleboardData_gas_resistance_tag  6
+#define leos_PurpleboardData_air_tag             7
 
 /* Struct field encoding specification for nanopb */
-#define leos_PurpleboardTelemetry_FIELDLIST(X, a) \
+#define leos_PurpleboardData_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, FLOAT,    temperature,       1) \
 X(a, STATIC,   SINGULAR, FLOAT,    pressure,          2) \
 X(a, STATIC,   SINGULAR, FLOAT,    humidity,          3) \
 X(a, STATIC,   SINGULAR, UINT32,   uvi,               4) \
 X(a, STATIC,   SINGULAR, FLOAT,    light_lux,         5) \
-X(a, STATIC,   SINGULAR, FLOAT,    gas_resistance,    6)
-#define leos_PurpleboardTelemetry_CALLBACK NULL
-#define leos_PurpleboardTelemetry_DEFAULT NULL
+X(a, STATIC,   SINGULAR, FLOAT,    gas_resistance,    6) \
+X(a, STATIC,   OPTIONAL, MESSAGE,  air,               7)
+#define leos_PurpleboardData_CALLBACK NULL
+#define leos_PurpleboardData_DEFAULT NULL
+#define leos_PurpleboardData_air_MSGTYPE leos_AirData
 
-extern const pb_msgdesc_t leos_PurpleboardTelemetry_msg;
+#define leos_AirData_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, UINT32,   pm10_env,          1) \
+X(a, STATIC,   SINGULAR, UINT32,   pm25_env,          2) \
+X(a, STATIC,   SINGULAR, UINT32,   pm100_env,         3) \
+X(a, STATIC,   SINGULAR, UINT32,   aqi_pm25_us,       4) \
+X(a, STATIC,   SINGULAR, UINT32,   aqi_pm100_us,      5)
+#define leos_AirData_CALLBACK NULL
+#define leos_AirData_DEFAULT NULL
+
+extern const pb_msgdesc_t leos_PurpleboardData_msg;
+extern const pb_msgdesc_t leos_AirData_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
-#define leos_PurpleboardTelemetry_fields &leos_PurpleboardTelemetry_msg
+#define leos_PurpleboardData_fields &leos_PurpleboardData_msg
+#define leos_AirData_fields &leos_AirData_msg
 
 /* Maximum encoded size of messages (where known) */
-#define LEOS_PURPLEBOARD_PB_H_MAX_SIZE           leos_PurpleboardTelemetry_size
-#define leos_PurpleboardTelemetry_size           31
+#define LEOS_PURPLEBOARD_PB_H_MAX_SIZE           leos_PurpleboardData_size
+#define leos_AirData_size                        30
+#define leos_PurpleboardData_size                63
 
 #ifdef __cplusplus
 } /* extern "C" */

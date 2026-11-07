@@ -2,15 +2,9 @@ syntax = "proto3";
 
 package leos;
 
-message EfmReadings {
-    // at most 4 entries per packet; see efm.options.
-    repeated ADC adc = 1;
-}
-
-message ADC {
-    uint32 id = 1;
-    float ch1_diff = 2;
-    float ch2_phase1 = 3;
-    float ch3_phase2 = 4;
-    float ch4_breakbeam = 5;
+message EfmData {
+    float  avg_sample = 1;
+    float  min_sample = 2;
+    float  max_sample = 3;
+    uint32 hall_events_in_interval = 4;
 }

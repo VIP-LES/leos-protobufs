@@ -6,10 +6,7 @@
 #error Regenerate this file with the current version of nanopb generator.
 #endif
 
-PB_BIND(leos_EfmReadings, leos_EfmReadings, AUTO)
-
-
-PB_BIND(leos_ADC, leos_ADC, AUTO)
+PB_BIND(leos_EfmData, leos_EfmData, AUTO)
 
 
 

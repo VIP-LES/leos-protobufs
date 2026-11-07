@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rcommand.proto\x12\x04leos\"T\n\rCommandPacket\x12\x12\n\ncommand_id\x18\x01 \x01(\r\x12\'\n\x07\x63utdown\x18\n \x01(\x0b\x32\x14.leos.CutdownCommandH\x00\x42\x06\n\x04\x64\x61ta\"9\n\x0e\x43utdownCommand\x12\x0c\n\x04\x66ire\x18\x01 \x01(\x08\x12\x19\n\x11\x61uthorization_key\x18\x02 \x01(\rb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rcommand.proto\x12\x04leos\"T\n\rCommandPacket\x12\x12\n\ncommand_id\x18\x01 \x01(\r\x12\'\n\x07\x63utdown\x18\x02 \x01(\x0b\x32\x14.leos.CutdownCommandH\x00\x42\x06\n\x04\x64\x61ta\"9\n\x0e\x43utdownCommand\x12\x0c\n\x04\x66ire\x18\x01 \x01(\x08\x12\x19\n\x11\x61uthorization_key\x18\x02 \x01(\rb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)

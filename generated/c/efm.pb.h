@@ -10,19 +10,12 @@
 #endif
 
 /* Struct definitions */
-typedef struct _leos_ADC {
-    uint32_t id;
-    float ch1_diff;
-    float ch2_phase1;
-    float ch3_phase2;
-    float ch4_breakbeam;
-} leos_ADC;
-
-typedef struct _leos_EfmReadings {
-    /* at most 4 entries per packet; see efm.options. */
-    pb_size_t adc_count;
-    leos_ADC adc[4];
-} leos_EfmReadings;
+typedef struct _leos_EfmData {
+    float avg_sample;
+    float min_sample;
+    float max_sample;
+    uint32_t hall_events_in_interval;
+} leos_EfmData;
 
 
 #ifdef __cplusplus
@@ -30,46 +23,32 @@ extern "C" {
 #endif
 
 /* Initializer values for message structs */
-#define leos_EfmReadings_init_default            {0, {leos_ADC_init_default, leos_ADC_init_default, leos_ADC_init_default, leos_ADC_init_default}}
-#define leos_ADC_init_default                    {0, 0, 0, 0, 0}
-#define leos_EfmReadings_init_zero               {0, {leos_ADC_init_zero, leos_ADC_init_zero, leos_ADC_init_zero, leos_ADC_init_zero}}
-#define leos_ADC_init_zero                       {0, 0, 0, 0, 0}
+#define leos_EfmData_init_default                {0, 0, 0, 0}
+#define leos_EfmData_init_zero                   {0, 0, 0, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
-#define leos_ADC_id_tag                          1
-#define leos_ADC_ch1_diff_tag                    2
-#define leos_ADC_ch2_phase1_tag                  3
-#define leos_ADC_ch3_phase2_tag                  4
-#define leos_ADC_ch4_breakbeam_tag               5
-#define leos_EfmReadings_adc_tag                 1
+#define leos_EfmData_avg_sample_tag              1
+#define leos_EfmData_min_sample_tag              2
+#define leos_EfmData_max_sample_tag              3
+#define leos_EfmData_hall_events_in_interval_tag 4
 
 /* Struct field encoding specification for nanopb */
-#define leos_EfmReadings_FIELDLIST(X, a) \
-X(a, STATIC,   REPEATED, MESSAGE,  adc,               1)
-#define leos_EfmReadings_CALLBACK NULL
-#define leos_EfmReadings_DEFAULT NULL
-#define leos_EfmReadings_adc_MSGTYPE leos_ADC
+#define leos_EfmData_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, FLOAT,    avg_sample,        1) \
+X(a, STATIC,   SINGULAR, FLOAT,    min_sample,        2) \
+X(a, STATIC,   SINGULAR, FLOAT,    max_sample,        3) \
+X(a, STATIC,   SINGULAR, UINT32,   hall_events_in_interval,   4)
+#define leos_EfmData_CALLBACK NULL
+#define leos_EfmData_DEFAULT NULL
 
-#define leos_ADC_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, UINT32,   id,                1) \
-X(a, STATIC,   SINGULAR, FLOAT,    ch1_diff,          2) \
-X(a, STATIC,   SINGULAR, FLOAT,    ch2_phase1,        3) \
-X(a, STATIC,   SINGULAR, FLOAT,    ch3_phase2,        4) \
-X(a, STATIC,   SINGULAR, FLOAT,    ch4_breakbeam,     5)
-#define leos_ADC_CALLBACK NULL
-#define leos_ADC_DEFAULT NULL
-
-extern const pb_msgdesc_t leos_EfmReadings_msg;
-extern const pb_msgdesc_t leos_ADC_msg;
+extern const pb_msgdesc_t leos_EfmData_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
-#define leos_EfmReadings_fields &leos_EfmReadings_msg
-#define leos_ADC_fields &leos_ADC_msg
+#define leos_EfmData_fields &leos_EfmData_msg
 
 /* Maximum encoded size of messages (where known) */
-#define LEOS_EFM_PB_H_MAX_SIZE                   leos_EfmReadings_size
-#define leos_ADC_size                            26
-#define leos_EfmReadings_size                    112
+#define LEOS_EFM_PB_H_MAX_SIZE                   leos_EfmData_size
+#define leos_EfmData_size                        21
 
 #ifdef __cplusplus
 } /* extern "C" */

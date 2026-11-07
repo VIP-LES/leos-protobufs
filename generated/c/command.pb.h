@@ -38,12 +38,12 @@ extern "C" {
 #define leos_CutdownCommand_fire_tag             1
 #define leos_CutdownCommand_authorization_key_tag 2
 #define leos_CommandPacket_command_id_tag        1
-#define leos_CommandPacket_cutdown_tag           10
+#define leos_CommandPacket_cutdown_tag           2
 
 /* Struct field encoding specification for nanopb */
 #define leos_CommandPacket_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, UINT32,   command_id,        1) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (data,cutdown,data.cutdown),  10)
+X(a, STATIC,   ONEOF,    MESSAGE,  (data,cutdown,data.cutdown),   2)
 #define leos_CommandPacket_CALLBACK NULL
 #define leos_CommandPacket_DEFAULT NULL
 #define leos_CommandPacket_data_cutdown_MSGTYPE leos_CutdownCommand

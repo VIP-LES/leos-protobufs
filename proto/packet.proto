@@ -13,7 +13,7 @@ message Packet {
   uint64 timestamp_ms = 3;
 
   oneof payload {
-    TelemetryPacket telemetry = 10;
-    CommandPacket command = 11;
+    TelemetryPacket telemetry = 4;
+    CommandPacket command = 5;
   }
 }

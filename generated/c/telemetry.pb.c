@@ -6,9 +6,6 @@
 #error Regenerate this file with the current version of nanopb generator.
 #endif
 
-PB_BIND(leos_LowRateTelemetry, leos_LowRateTelemetry, AUTO)
-
-
 PB_BIND(leos_TelemetryPacket, leos_TelemetryPacket, AUTO)
 
 

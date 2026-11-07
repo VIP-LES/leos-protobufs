@@ -6,7 +6,7 @@ message CommandPacket {
   uint32 command_id = 1;
 
   oneof data {
-    CutdownCommand cutdown = 10;
+    CutdownCommand cutdown = 2;
   }
 }
 

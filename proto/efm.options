@@ -1,2 +1,0 @@
-# conservative per-packet capacity, not an ADC board count assumption
-leos.EfmReadings.adc max_count:4

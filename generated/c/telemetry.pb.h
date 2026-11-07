@@ -7,25 +7,24 @@
 #include "beacon.pb.h"
 #include "efm.pb.h"
 #include "purpleboard.pb.h"
+#include "geiger.pb.h"
 
 #if PB_PROTO_HEADER_VERSION != 40
 #error Regenerate this file with the current version of nanopb generator.
 #endif
 
 /* Struct definitions */
-typedef struct _leos_LowRateTelemetry {
-    bool has_sensors;
-    leos_PurpleboardTelemetry sensors;
+typedef struct _leos_TelemetryPacket {
+    bool has_efm0;
+    leos_EfmData efm0;
+    bool has_efm1;
+    leos_EfmData efm1;
+    bool has_geiger;
+    leos_GeigerData geiger;
+    bool has_purple;
+    leos_PurpleboardData purple;
     bool has_beacon;
     leos_Beacon beacon;
-} leos_LowRateTelemetry;
-
-typedef struct _leos_TelemetryPacket {
-    pb_size_t which_data;
-    union {
-        leos_EfmReadings efm;
-        leos_LowRateTelemetry low_rate;
-    } data;
 } leos_TelemetryPacket;
 
 
@@ -34,45 +33,39 @@ extern "C" {
 #endif
 
 /* Initializer values for message structs */
-#define leos_LowRateTelemetry_init_default       {false, leos_PurpleboardTelemetry_init_default, false, leos_Beacon_init_default}
-#define leos_TelemetryPacket_init_default        {0, {leos_EfmReadings_init_default}}
-#define leos_LowRateTelemetry_init_zero          {false, leos_PurpleboardTelemetry_init_zero, false, leos_Beacon_init_zero}
-#define leos_TelemetryPacket_init_zero           {0, {leos_EfmReadings_init_zero}}
+#define leos_TelemetryPacket_init_default        {false, leos_EfmData_init_default, false, leos_EfmData_init_default, false, leos_GeigerData_init_default, false, leos_PurpleboardData_init_default, false, leos_Beacon_init_default}
+#define leos_TelemetryPacket_init_zero           {false, leos_EfmData_init_zero, false, leos_EfmData_init_zero, false, leos_GeigerData_init_zero, false, leos_PurpleboardData_init_zero, false, leos_Beacon_init_zero}
 
 /* Field tags (for use in manual encoding/decoding) */
-#define leos_LowRateTelemetry_sensors_tag        1
-#define leos_LowRateTelemetry_beacon_tag         4
-#define leos_TelemetryPacket_efm_tag             13
-#define leos_TelemetryPacket_low_rate_tag        14
+#define leos_TelemetryPacket_efm0_tag            1
+#define leos_TelemetryPacket_efm1_tag            2
+#define leos_TelemetryPacket_geiger_tag          3
+#define leos_TelemetryPacket_purple_tag          4
+#define leos_TelemetryPacket_beacon_tag          5
 
 /* Struct field encoding specification for nanopb */
-#define leos_LowRateTelemetry_FIELDLIST(X, a) \
-X(a, STATIC,   OPTIONAL, MESSAGE,  sensors,           1) \
-X(a, STATIC,   OPTIONAL, MESSAGE,  beacon,            4)
-#define leos_LowRateTelemetry_CALLBACK NULL
-#define leos_LowRateTelemetry_DEFAULT NULL
-#define leos_LowRateTelemetry_sensors_MSGTYPE leos_PurpleboardTelemetry
-#define leos_LowRateTelemetry_beacon_MSGTYPE leos_Beacon
-
 #define leos_TelemetryPacket_FIELDLIST(X, a) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (data,efm,data.efm),  13) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (data,low_rate,data.low_rate),  14)
+X(a, STATIC,   OPTIONAL, MESSAGE,  efm0,              1) \
+X(a, STATIC,   OPTIONAL, MESSAGE,  efm1,              2) \
+X(a, STATIC,   OPTIONAL, MESSAGE,  geiger,            3) \
+X(a, STATIC,   OPTIONAL, MESSAGE,  purple,            4) \
+X(a, STATIC,   OPTIONAL, MESSAGE,  beacon,            5)
 #define leos_TelemetryPacket_CALLBACK NULL
 #define leos_TelemetryPacket_DEFAULT NULL
-#define leos_TelemetryPacket_data_efm_MSGTYPE leos_EfmReadings
-#define leos_TelemetryPacket_data_low_rate_MSGTYPE leos_LowRateTelemetry
+#define leos_TelemetryPacket_efm0_MSGTYPE leos_EfmData
+#define leos_TelemetryPacket_efm1_MSGTYPE leos_EfmData
+#define leos_TelemetryPacket_geiger_MSGTYPE leos_GeigerData
+#define leos_TelemetryPacket_purple_MSGTYPE leos_PurpleboardData
+#define leos_TelemetryPacket_beacon_MSGTYPE leos_Beacon
 
-extern const pb_msgdesc_t leos_LowRateTelemetry_msg;
 extern const pb_msgdesc_t leos_TelemetryPacket_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
-#define leos_LowRateTelemetry_fields &leos_LowRateTelemetry_msg
 #define leos_TelemetryPacket_fields &leos_TelemetryPacket_msg
 
 /* Maximum encoded size of messages (where known) */
 #define LEOS_TELEMETRY_PB_H_MAX_SIZE             leos_TelemetryPacket_size
-#define leos_LowRateTelemetry_size               125
-#define leos_TelemetryPacket_size                127
+#define leos_TelemetryPacket_size                211
 
 #ifdef __cplusplus
 } /* extern "C" */

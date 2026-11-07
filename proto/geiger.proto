@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package leos;
+
+message GeigerData {
+    uint32 hits_in_interval = 1;
+}

@@ -25,17 +25,16 @@ _sym_db = _symbol_database.Default()
 import beacon_pb2 as beacon__pb2
 import efm_pb2 as efm__pb2
 import purpleboard_pb2 as purpleboard__pb2
+import geiger_pb2 as geiger__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0ftelemetry.proto\x12\x04leos\x1a\x0c\x62\x65\x61\x63on.proto\x1a\tefm.proto\x1a\x11purpleboard.proto\"]\n\x10LowRateTelemetry\x12+\n\x07sensors\x18\x01 \x01(\x0b\x32\x1a.leos.PurpleboardTelemetry\x12\x1c\n\x06\x62\x65\x61\x63on\x18\x04 \x01(\x0b\x32\x0c.leos.Beacon\"g\n\x0fTelemetryPacket\x12 \n\x03\x65\x66m\x18\r \x01(\x0b\x32\x11.leos.EfmReadingsH\x00\x12*\n\x08low_rate\x18\x0e \x01(\x0b\x32\x16.leos.LowRateTelemetryH\x00\x42\x06\n\x04\x64\x61tab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0ftelemetry.proto\x12\x04leos\x1a\x0c\x62\x65\x61\x63on.proto\x1a\tefm.proto\x1a\x11purpleboard.proto\x1a\x0cgeiger.proto\"\xb2\x01\n\x0fTelemetryPacket\x12\x1b\n\x04\x65\x66m0\x18\x01 \x01(\x0b\x32\r.leos.EfmData\x12\x1b\n\x04\x65\x66m1\x18\x02 \x01(\x0b\x32\r.leos.EfmData\x12 \n\x06geiger\x18\x03 \x01(\x0b\x32\x10.leos.GeigerData\x12%\n\x06purple\x18\x04 \x01(\x0b\x32\x15.leos.PurpleboardData\x12\x1c\n\x06\x62\x65\x61\x63on\x18\x05 \x01(\x0b\x32\x0c.leos.Beaconb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'telemetry_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
-  _globals['_LOWRATETELEMETRY']._serialized_start=69
-  _globals['_LOWRATETELEMETRY']._serialized_end=162
-  _globals['_TELEMETRYPACKET']._serialized_start=164
-  _globals['_TELEMETRYPACKET']._serialized_end=267
+  _globals['_TELEMETRYPACKET']._serialized_start=84
+  _globals['_TELEMETRYPACKET']._serialized_end=262
 # @@protoc_insertion_point(module_scope)

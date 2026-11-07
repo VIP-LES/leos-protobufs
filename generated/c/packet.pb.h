@@ -38,16 +38,16 @@ extern "C" {
 #define leos_Packet_callsign_tag                 1
 #define leos_Packet_sequence_tag                 2
 #define leos_Packet_timestamp_ms_tag             3
-#define leos_Packet_telemetry_tag                10
-#define leos_Packet_command_tag                  11
+#define leos_Packet_telemetry_tag                4
+#define leos_Packet_command_tag                  5
 
 /* Struct field encoding specification for nanopb */
 #define leos_Packet_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, STRING,   callsign,          1) \
 X(a, STATIC,   SINGULAR, UINT32,   sequence,          2) \
 X(a, STATIC,   SINGULAR, UINT64,   timestamp_ms,      3) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (payload,telemetry,payload.telemetry),  10) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (payload,command,payload.command),  11)
+X(a, STATIC,   ONEOF,    MESSAGE,  (payload,telemetry,payload.telemetry),   4) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (payload,command,payload.command),   5)
 #define leos_Packet_CALLBACK NULL
 #define leos_Packet_DEFAULT NULL
 #define leos_Packet_payload_telemetry_MSGTYPE leos_TelemetryPacket
@@ -60,7 +60,7 @@ extern const pb_msgdesc_t leos_Packet_msg;
 
 /* Maximum encoded size of messages (where known) */
 #define LEOS_PACKET_PB_H_MAX_SIZE                leos_Packet_size
-#define leos_Packet_size                         164
+#define leos_Packet_size                         249
 
 #ifdef __cplusplus
 } /* extern "C" */

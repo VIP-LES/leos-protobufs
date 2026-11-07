@@ -5,15 +5,12 @@ package leos;
 import "beacon.proto";
 import "efm.proto";
 import "purpleboard.proto";
-
-message LowRateTelemetry {
-  PurpleboardTelemetry sensors = 1;
-  Beacon beacon = 4;
-}
+import "geiger.proto";
 
 message TelemetryPacket {
-  oneof data {
-    EfmReadings efm = 13;
-    LowRateTelemetry low_rate = 14;
-  }
+  EfmData efm0 = 1;
+  EfmData efm1 = 2;
+  GeigerData geiger = 3;
+  PurpleboardData purple = 4;
+  Beacon beacon = 5;
 }

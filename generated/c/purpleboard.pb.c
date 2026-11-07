@@ -6,7 +6,10 @@
 #error Regenerate this file with the current version of nanopb generator.
 #endif
 
-PB_BIND(leos_PurpleboardTelemetry, leos_PurpleboardTelemetry, AUTO)
+PB_BIND(leos_PurpleboardData, leos_PurpleboardData, AUTO)
+
+
+PB_BIND(leos_AirData, leos_AirData, AUTO)
 
 
 
