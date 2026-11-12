@@ -1,0 +1,34 @@
+{
+  "callsign": "LEOS-TEST",
+  "sequence": 42,
+  "timestamp_ms": "123456",
+  "telemetry": {
+    "purple": {
+      "temperature": 20.5,
+      "pressure": 101325,
+      "humidity": 45.5,
+      "uvi": 3,
+      "light_lux": 128,
+      "gas_resistance": 10000
+    },
+    "beacon": {
+      "gps": {
+        "lat": 33.75,
+        "lon": -84.5,
+        "alt_m": 300,
+        "satellites": 8,
+        "fix": 3,
+        "climb_mps": 1.5,
+        "hdop": 0.75,
+        "utc_unix_ms": "1789992000000"
+      },
+      "health": {
+        "flight_computer": 1,
+        "power": 2,
+        "efm": 4,
+        "sensors": 8,
+        "radio": 16
+      }
+    }
+  }
+}

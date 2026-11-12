@@ -1,8 +1,21 @@
-message PurpleboardTelemetry {
+syntax = "proto3";
+
+package leos;
+
+message PurpleboardData {
     float temperature = 1;
     float pressure = 2;
     float humidity = 3;
     uint32 uvi = 4;
     float light_lux = 5;
     float gas_resistance = 6;
+    AirData air = 7;
+}
+
+message AirData {
+    uint32 pm10_env = 1;
+    uint32 pm25_env = 2;
+    uint32 pm100_env = 3;
+    uint32 aqi_pm25_us = 4;
+    uint32 aqi_pm100_us = 5;
 }

@@ -1,0 +1,18 @@
+{
+  "versions": {
+    "nanopb": "0.4.9.1",
+    "grpcio-tools": "1.84.0",
+    "protobuf": "7.36.1"
+  },
+  "sources": {
+    "beacon.proto": "4e7cbc392276f7c14cb399c3bfbc125462e19bf031bbce10456c04dd12fe8b2f",
+    "command.proto": "b748e8753f4a034289694a50a094af968df72a035a21d8676e71ded025b00f4a",
+    "efm.proto": "f1298b992efc7dfe4159f7fbda9c6baa915dc0f69b654a8eba0f7f491b060aef",
+    "geiger.proto": "7362eba0ace56310751f5736701b375ab59dcb7cab5d15bdc7c76ea3c999f979",
+    "gps.proto": "ea2aa8e1aae8e1c851af58cb1f2d798c3c838dcef1453337d3a9e2ce467c1e85",
+    "packet.proto": "7019b0fd27f51262e7b5e0b670a3c77a3f2c3d8398454f16c1e985784a4d4f4b",
+    "purpleboard.proto": "2278e85735ddb39ca4159f7a688965fac55cace312da4cb38681406cf8fe2cdf",
+    "telemetry.proto": "1dc8a5f572555931967bdc305d623cfa83a70f7d46afb8044dd5de4f173e7a92",
+    "packet.options": "4739841c283198337524288b98f09ab70c8e144e5a8e170a6fb720f6a9611d69"
+  }
+}
