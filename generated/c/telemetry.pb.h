@@ -65,7 +65,7 @@ extern const pb_msgdesc_t leos_TelemetryPacket_msg;
 
 /* Maximum encoded size of messages (where known) */
 #define LEOS_TELEMETRY_PB_H_MAX_SIZE             leos_TelemetryPacket_size
-#define leos_TelemetryPacket_size                211
+#define leos_TelemetryPacket_size                179
 
 #ifdef __cplusplus
 } /* extern "C" */

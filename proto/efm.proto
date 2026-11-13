@@ -3,8 +3,5 @@ syntax = "proto3";
 package leos;
 
 message EfmData {
-    float  avg_sample = 1;
-    float  min_sample = 2;
-    float  max_sample = 3;
-    uint32 hall_events_in_interval = 4;
+    float  motor_frequency = 1;
 }

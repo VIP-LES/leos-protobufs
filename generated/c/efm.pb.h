@@ -11,10 +11,7 @@
 
 /* Struct definitions */
 typedef struct _leos_EfmData {
-    float avg_sample;
-    float min_sample;
-    float max_sample;
-    uint32_t hall_events_in_interval;
+    float motor_frequency;
 } leos_EfmData;
 
 
@@ -23,21 +20,15 @@ extern "C" {
 #endif
 
 /* Initializer values for message structs */
-#define leos_EfmData_init_default                {0, 0, 0, 0}
-#define leos_EfmData_init_zero                   {0, 0, 0, 0}
+#define leos_EfmData_init_default                {0}
+#define leos_EfmData_init_zero                   {0}
 
 /* Field tags (for use in manual encoding/decoding) */
-#define leos_EfmData_avg_sample_tag              1
-#define leos_EfmData_min_sample_tag              2
-#define leos_EfmData_max_sample_tag              3
-#define leos_EfmData_hall_events_in_interval_tag 4
+#define leos_EfmData_motor_frequency_tag         1
 
 /* Struct field encoding specification for nanopb */
 #define leos_EfmData_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, FLOAT,    avg_sample,        1) \
-X(a, STATIC,   SINGULAR, FLOAT,    min_sample,        2) \
-X(a, STATIC,   SINGULAR, FLOAT,    max_sample,        3) \
-X(a, STATIC,   SINGULAR, UINT32,   hall_events_in_interval,   4)
+X(a, STATIC,   SINGULAR, FLOAT,    motor_frequency,   1)
 #define leos_EfmData_CALLBACK NULL
 #define leos_EfmData_DEFAULT NULL
 
@@ -48,7 +39,7 @@ extern const pb_msgdesc_t leos_EfmData_msg;
 
 /* Maximum encoded size of messages (where known) */
 #define LEOS_EFM_PB_H_MAX_SIZE                   leos_EfmData_size
-#define leos_EfmData_size                        21
+#define leos_EfmData_size                        5
 
 #ifdef __cplusplus
 } /* extern "C" */

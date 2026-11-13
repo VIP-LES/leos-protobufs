@@ -7,7 +7,7 @@
   "sources": {
     "beacon.proto": "4e7cbc392276f7c14cb399c3bfbc125462e19bf031bbce10456c04dd12fe8b2f",
     "command.proto": "b748e8753f4a034289694a50a094af968df72a035a21d8676e71ded025b00f4a",
-    "efm.proto": "f1298b992efc7dfe4159f7fbda9c6baa915dc0f69b654a8eba0f7f491b060aef",
+    "efm.proto": "940fb2144615c7cde1718d42951be2a8bd9bbbab6520bc6ad07e42cba437408b",
     "geiger.proto": "7362eba0ace56310751f5736701b375ab59dcb7cab5d15bdc7c76ea3c999f979",
     "gps.proto": "ea2aa8e1aae8e1c851af58cb1f2d798c3c838dcef1453337d3a9e2ce467c1e85",
     "packet.proto": "7019b0fd27f51262e7b5e0b670a3c77a3f2c3d8398454f16c1e985784a4d4f4b",

@@ -60,7 +60,7 @@ extern const pb_msgdesc_t leos_Packet_msg;
 
 /* Maximum encoded size of messages (where known) */
 #define LEOS_PACKET_PB_H_MAX_SIZE                leos_Packet_size
-#define leos_Packet_size                         249
+#define leos_Packet_size                         217
 
 #ifdef __cplusplus
 } /* extern "C" */

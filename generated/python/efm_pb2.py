@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\tefm.proto\x12\x04leos\"f\n\x07\x45\x66mData\x12\x12\n\navg_sample\x18\x01 \x01(\x02\x12\x12\n\nmin_sample\x18\x02 \x01(\x02\x12\x12\n\nmax_sample\x18\x03 \x01(\x02\x12\x1f\n\x17hall_events_in_interval\x18\x04 \x01(\rb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\tefm.proto\x12\x04leos\"\"\n\x07\x45\x66mData\x12\x17\n\x0fmotor_frequency\x18\x01 \x01(\x02\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,5 +32,5 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'efm_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_EFMDATA']._serialized_start=19
-  _globals['_EFMDATA']._serialized_end=121
+  _globals['_EFMDATA']._serialized_end=53
 # @@protoc_insertion_point(module_scope)
